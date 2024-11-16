@@ -1,9 +1,27 @@
+
 {% extends "base.html" %}
-<H1>REGISTRARSE</H1>
+
 {% block content %}
-    <form method="post">
-        <input type="text" name="nombre" id="nombre" placeholder="nombre de usuario">
-        <input type="password" name="contrasena" id="password" placeholder="Contaseña">
-        <button type="submit">Registrar</button>
-    </form>
+<link rel="stylesheet" href="{{url_for('static', filename='register.css')}}">
+<form class="form" method="post" autocomplete="off">
+    <p class="title">Registro </p>
+    <p class="message">Regístrate ahora y obtén acceso completo a nuestra aplicación. </p>
+        <div class="flex">
+        <label>
+            <input class="input" type="text" placeholder="" required="" name="nombre" id="nombre">
+            <span>Nombre</span>
+        </label>
+    </div>  
+            
+    <label>
+        <input class="input" type="password" placeholder="" required="" name="contrasena" id="password">
+        <span>Contraseña</span>
+    </label>
+    <label>
+        <input class="input" type="password" placeholder="" required="" name="confcontrasena" id="conf_password">
+        <span>Confirmar contraseña</span>
+    </label>
+    <button class="submit" type="submit">Enviar</button>
+    <p class="signin">Ya tienes cuenta? <a href="{{url_for('auth.login')}}">Ingresa</a> </p>
+</form>
 {% endblock %}
